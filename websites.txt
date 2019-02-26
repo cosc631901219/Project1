@@ -1,0 +1,10 @@
+SOME EXAMPLES USING ZIGBEE WITH JAVA
+https://github.com/tlaukkan/zigbee4java?files=1
+WHAT DOES ZIGBEE SUPPORT
+https://www.zigbee.org/zigbee-for-developers/network-specifications/zigbeeip/
+
+Model-View-Controller patterns
+research paper
+http://www.univ-artois.fr/icee/fichiers-associes/rapports-etudiants/rapports%2011/Bethune2011station.pdf
+
+https://afterhourscoding.wordpress.com/tag/zigbee/
