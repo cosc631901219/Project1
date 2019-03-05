@@ -4,8 +4,8 @@ package MSR;
 
 public class Message {
 	
-	private double measurement;
-	private String field;
+	public double measurement;
+	public String field;
 	
 	public Message(String s, double n)
 	{
