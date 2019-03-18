@@ -47,4 +47,11 @@ public class RecieverScreen extends JFrame {
 		recThread = new Thread(myRec);
 		recThread.start();
 	}
+	
+	public void updateDisplay(Message myMessage)
+	{
+		//System.out.println("trying to update display");
+		textField.setText(myMessage.getField());
+		textMeasurment.setText(String.valueOf(myMessage.getMeasurement()));
+	}
 }

@@ -4,8 +4,8 @@ package MSR;
 
 public class Message {
 	
-	public double measurement;
-	public String field;
+	private double measurement;
+	private String field;
 	
 	public Message(String s, double n)
 	{
@@ -15,26 +15,23 @@ public class Message {
 	
 	public Message(String s)
 	{
+		//field = s;
+		//System.out.println(s);
 		this.fromXML(s);
 	}
 	
 	private void fromXML(String s)
 	{
-		String Left = s;
-		int index = 0;
-		while(index < Left.length()) // Please verify this logic in all future expansions
-		{
-			int temp;
-			index = Left.indexOf('<',index);
-			temp = Left.indexOf('>', index);
-			field = Left.substring(index+1, temp-1);
-			
-			index = Left.indexOf('<', temp);
-			String myMeas = Left.substring(temp+1, index);
-			measurement = Double.parseDouble(myMeas);
-			//Add more lines for checking for valid messages
-					
-		}
+		int fIndex, rIndex;
+		String temp;
+		fIndex = s.indexOf("<");
+		rIndex = s.indexOf(">");
+		field = s.substring(fIndex+1, rIndex);
+		fIndex = rIndex;
+		rIndex = s.indexOf("<", fIndex);
+		temp = s.substring(fIndex+1, rIndex);
+		measurement = Double.valueOf(temp);
+		//System.out.println(measurement);
 	}
 	
 	public String getXML()
@@ -42,4 +39,21 @@ public class Message {
 		String myS = new String('<'+field+'>'+String.valueOf(measurement)+'<' +'/'+field+'>');
 		return myS;
 	}
+
+	public double getMeasurement() {
+		return measurement;
+	}
+
+	public void setMeasurement(double measurement) {
+		this.measurement = measurement;
+	}
+
+	public String getField() {
+		return field;
+	}
+
+	public void setField(String field) {
+		this.field = field;
+	}
+	
 }

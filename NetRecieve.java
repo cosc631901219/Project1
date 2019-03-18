@@ -26,11 +26,12 @@ public class NetRecieve implements Runnable {
         running = true;
  
         while (running) {
+        	//System.out.println("Making new temp packet");
             DatagramPacket packet 
               = new DatagramPacket(buf, buf.length);
             try {
 				socket.receive(packet);
-				System.out.println("got packet");
+				//System.out.println("got packet");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -41,9 +42,10 @@ public class NetRecieve implements Runnable {
             packet = new DatagramPacket(buf, buf.length, address, port);*/
             String received 
               = new String(packet.getData(), 0, packet.getLength());
-             Message myMessage = new Message(received);
-            myScreen.textField.setText(myMessage.field);
-            myScreen.textMeasurment.setText(String.valueOf(myMessage.measurement));
+            //myScreen.textField.setText(received);
+            Message myMessage = new Message(received);
+            //System.out.println(myMessage.getField());
+            myScreen.updateDisplay(myMessage);
            
         }
         socket.close();

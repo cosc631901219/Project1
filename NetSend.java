@@ -17,7 +17,6 @@ public class NetSend implements Runnable{
 	
 	public NetSend(SenderScreen f)
 	{
-		System.out.println("test4");
 		try {
 			socket = new DatagramSocket();
 		} catch (SocketException e) {
@@ -39,6 +38,7 @@ public class NetSend implements Runnable{
 		DatagramPacket packet = new DatagramPacket(buf, buf.length, address, 8675);
 		try {
 			socket.send(packet);
+			//System.out.println("Packet sent");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -47,7 +47,7 @@ public class NetSend implements Runnable{
 
 	@Override
 	public void run() {
-		System.out.println("Test3");
+		System.out.println("Starting Net send thread");
 		while(true)
 		{
 			myMessage = new Message(frame.txtField.getText(), frame.slider.getValue());
