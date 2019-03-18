@@ -18,7 +18,6 @@ public class Sender {
 				}
 			}
 		});
-		System.out.println("test1");
 		init();
 		
 	}
